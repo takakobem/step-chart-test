@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core"
 import Balloon from "./Balloon"
 import AddStep from "./AddStep"
 import { CSSProperties } from "@material-ui/styles"
-import ErrorHandling from "./ErrorHandling"
 
 const useStyles = makeStyles(theme => {
   const horizontalLine: CSSProperties = {
@@ -95,17 +94,12 @@ const SmallDownArrow = () => {
   )
 }
 
-export default function Split({
-  depth = 0,
+export default function ErrorHandling({
   id,
 }: {
-  depth: number
   id: string
 }) {
   const classes = useStyles({})
-  if (depth > 3) {
-    return null
-  }
   return (
     <div className={classes.centering}>
       <AddStep>
@@ -116,23 +110,13 @@ export default function Split({
           <div className={classes.topLeftLine}></div>
           <div className={classes.verticalContainer}>
             <div className={classes.smallDownArrowContainer}>
-              <SmallDownArrow />
+            <SmallDownArrow />
             </div>
             <Balloon />
-            {depth < 2 ? (
-              <>
-                <ErrorHandling id="0"></ErrorHandling>
-                <div className={classes.smallDownArrowContainer}>
-                  <SmallDownArrow />
-                </div>
-                <ErrorHandling id="1"></ErrorHandling>
-              </>
-            ) : null}
             <AddStep>
               <div className={classes.verticalLine}></div>
             </AddStep>
           </div>
-          <div className={classes.bottomLeftLine}></div>
         </div>
         <div className={`${classes.step} ${classes.centering}`}>
           <AddStep>
@@ -142,11 +126,7 @@ export default function Split({
           <AddStep>
             <SmallDownArrow />
           </AddStep>
-          <Split id="0" depth={depth + 1} />
           <Balloon />
-          <AddStep>
-            <div className={classes.verticalLine}></div>
-          </AddStep>
         </div>
       </div>
       <AddStep>

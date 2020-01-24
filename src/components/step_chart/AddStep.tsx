@@ -5,7 +5,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     flex: 1,
     position: 'relative',
-    padding: '0 7px',
+    padding: '0 12px',
     '&:hover': {
       cursor: 'pointer'
     },

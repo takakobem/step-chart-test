@@ -4,7 +4,7 @@ export default makeStyles(theme => ({
   container: {
     position: 'relative',
     display: 'flex',
-    padding: '0 4px',
+    padding: '0 12px',
     '&:hover': {
       cursor: 'pointer'
     },
